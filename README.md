@@ -22,4 +22,18 @@ The path to localhost for this web service change everytime you run Eureka, so d
 
 And **/actuator/info** for **/h2-console** in the other window for the database:
 
-![Swagger](https://github.com/Serpache/FootballManager/blob/main/.attachments/Database.PNG)
+![Database](https://github.com/Serpache/FootballManager/blob/main/.attachments/Database.PNG)
+
+For the credentials use **User Name: Sergio** and **Password: 123**. Do not worry about security, this database is just to see the results of the JPA operations, it is empty and gets destroyed every time you shut down the web service.
+
+Now you can start using the web service and try the methods through the swagger:
+
+![Swagger use](https://github.com/Serpache/FootballManager/blob/main/.attachments/SwaggerUse.PNG)
+
+Or you can ignore the swagger and access the methods through **Postman** request:
+
+![Postman example](https://github.com/Serpache/FootballManager/blob/main/.attachments/PostmanExample.PNG)
+
+Here you do not need to worry for the dynamic port of the web service, as you will access it through API-GATEWAY, wich has a fix port in **http://localhost:8082/**. The next part of the request URL you see on the picture corresponds to the web service name, in this case **FOOTBALLMANAGER-WS/** and then you can type any of the end point available on the **FootballController**. Some of them need a body likke the **POST** to **/footballManager** on the picture that creates a new team, others need a **parameter** and the rest just need to be called, all this details are specify on the controller and swagger documentation.
+
+Remember that while using the web service you can check the status of the database via **h2-console** any time you want.
