@@ -10,4 +10,4 @@ In order to run the aplication dowload the complete repository and open it on yo
 
 If everithing worked correctly you can now open the Eureka interface by accesing **http://localhost:8010/** in your browser.
 
-![EurekaServer.png](./.attachments/EurekaServer.png)
+![Eureka Server](https://github.com/[Serpache]/[FootballManager]/blob/[main]/.attachments/EurekaServer.png)
