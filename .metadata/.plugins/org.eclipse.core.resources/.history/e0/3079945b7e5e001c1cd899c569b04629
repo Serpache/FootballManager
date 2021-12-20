@@ -1,0 +1,5 @@
+package com.accessProject.footballManager.services;
+
+public interface FootballManagerService {
+
+}

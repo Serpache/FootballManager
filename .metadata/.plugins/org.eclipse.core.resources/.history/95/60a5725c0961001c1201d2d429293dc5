@@ -1,0 +1,13 @@
+server.port=8082
+spring.application.name=API-GATEWAY
+eureka.client.service-url.defaultZone=http://localhost:8010/eureka
+
+spring.cloud.gateway.discovery.locator.enabled=true
+#spring.cloud.gateway.discovery.locator.lower-case-service-id=true
+          
+spring.cloud.gateway.routes[0].id = FOOTBALLMANAGER-WS
+spring.cloud.gateway.routes[0].uri = lb://FOOTBALLMANAGER-WS
+spring.cloud.gateway.routes[0].predicates[0]=Path=/FOOTBALLMANAGER-WS/footballManager/**
+spring.cloud.gateway.routes[0].filters[0]=SwaggerHeaderFilter
+spring.cloud.gateway.routes[0].filters[1]=StripPrefix=1
+

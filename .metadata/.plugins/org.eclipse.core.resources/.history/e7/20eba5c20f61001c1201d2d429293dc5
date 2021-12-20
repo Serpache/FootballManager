@@ -1,0 +1,70 @@
+package com.accessProject.footballManager.controllers;
+
+import javax.validation.Valid;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.accessProject.footballManager.models.CreateFootballTeamRequestModel;
+import com.accessProject.footballManager.models.CreateFootballTeamResponseModel;
+import com.accessProject.footballManager.models.ListTeamsResponseModel;
+import com.accessProject.footballManager.shared.FootballTeamDto;
+import com.accessProject.footballManager.shared.ResponseDto;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
+
+@RestController
+@RequestMapping("/footballManager")
+public interface FootballController {
+	
+	@Operation(description = "Get team details")
+	@ApiResponse(responseCode = "200", description = "Successfully got team details")
+	@ApiResponse(responseCode = "500", description = "Server error")
+	@ApiResponse(responseCode = "404", description = "Team not found")
+	@GetMapping("/team/details")
+	public ResponseEntity<CreateFootballTeamResponseModel> getTeam(String nombre);
+	
+	@ApiOperation(value = "Get all teams")
+    @ApiResponses(value = {
+    		@ApiResponse(code = 200, message = "Successfully got list of all teams", response = FootballTeamDto.class),
+    		@ApiResponse(code = 500, message = "Server error", response = ResponseDto.class)
+    })
+	@GetMapping("/teams")
+	public ResponseEntity<ListTeamsResponseModel> getAllTeams();
+	
+	@ApiOperation(value = "Create new team")
+    @ApiResponses(value = {
+    		@ApiResponse(code = 200, message = "Successfully created new team", response = FootballTeamDto.class),
+    		@ApiResponse(code = 500, message = "Server error", response = ResponseDto.class),
+    		@ApiResponse(code = 400, message = "Some field does not meet the requirements", response = ResponseDto.class)
+    })
+	@PostMapping
+	public ResponseEntity<CreateFootballTeamResponseModel> createFootballTeam(@Valid @RequestBody CreateFootballTeamRequestModel teamDetails);
+	
+	@ApiOperation(value = "Delete football team based on name")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Successfully deleted team", response = FootballTeamDto.class),
+	    	@ApiResponse(code = 500, message = "Server error", response = ResponseDto.class),
+	    	@ApiResponse(code = 404, message = "Team not found", response = ResponseDto.class)
+	})
+	@DeleteMapping
+	public ResponseEntity<?> deleteFootballTeam(String nombre);
+	
+	@ApiOperation(value = "Update football team details")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Successfully updated team", response = FootballTeamDto.class),
+	    	@ApiResponse(code = 500, message = "Server error", response = ResponseDto.class),
+	    	@ApiResponse(code = 404, message = "Team not found", response = ResponseDto.class)
+	})
+	@PatchMapping
+	public ResponseEntity<CreateFootballTeamResponseModel> updateFootballTeam(@Valid @RequestBody CreateFootballTeamRequestModel teamDetails);
+}

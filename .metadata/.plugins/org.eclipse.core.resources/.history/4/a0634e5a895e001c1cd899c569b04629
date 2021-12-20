@@ -1,0 +1,5 @@
+package com.accessProject.footballManager.data;
+
+public class FootballTeamEntity {
+
+}

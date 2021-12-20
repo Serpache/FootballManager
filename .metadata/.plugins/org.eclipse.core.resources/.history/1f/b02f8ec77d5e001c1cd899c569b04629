@@ -1,0 +1,16 @@
+package com.accessProject.footballManager.shared;
+
+import java.util.Date;
+
+public class FootballTeamDto {
+
+	private String nombre;
+	private String ciudad;
+	private String propietario;
+	private int capacidad;
+	private int division;
+	private String competicion;
+	private int numJugadores;
+	private Date fechaCreacion;
+	private int equipoId;
+}

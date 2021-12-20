@@ -1,0 +1,5 @@
+package com.accessProject.footballManager.Config;
+
+public class OpenApi30Config {
+
+}

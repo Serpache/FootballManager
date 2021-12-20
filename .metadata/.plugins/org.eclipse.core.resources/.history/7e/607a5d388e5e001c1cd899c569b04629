@@ -1,0 +1,29 @@
+package com.accessProject.footballManager.services;
+
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.accessProject.footballManager.data.FootballManagerRepository;
+import com.accessProject.footballManager.shared.FootballTeamDto;
+
+public class FootballTeamServiceImp implements FootballManagerService {
+
+	@Autowired
+	FootballManagerRepository footballManagerRepository;
+	
+	@Override
+	public FootballTeamDto createTeam(FootballTeamDto teamDetails) {
+		teamDetails.setEquipoId(UUID.randomUUID().toString());
+		userDetails.setEncryptedPassword(bCryptPasswordEncoder.encode(userDetails.getPassword()));
+		
+		ModelMapper modelMapper = new ModelMapper();
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		UserEntity userEntity = modelMapper.map(userDetails, UserEntity.class);
+		
+		UserDto returnValue = modelMapper.map(usersRepository.save(userEntity), UserDto.class);
+		
+		return returnValue;
+	}
+
+}

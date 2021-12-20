@@ -1,0 +1,9 @@
+package com.accessProject.footballManager.services;
+
+import com.accessProject.footballManager.shared.FootballTeamDto;
+
+public interface FootballManagerService {
+
+	FootballTeamDto createTeam(FootballTeamDto teamDetails);
+	FootballTeamDto getTeam(String teamName);
+}

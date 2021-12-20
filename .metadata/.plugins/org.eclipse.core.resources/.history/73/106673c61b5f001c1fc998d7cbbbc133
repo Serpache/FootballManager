@@ -1,0 +1,14 @@
+package com.accessProject.footballManager.services;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+
+import com.accessProject.footballManager.shared.FootballTeamDto;
+
+public interface FootballManagerService {
+
+	ResponseEntity<?> createTeam(FootballTeamDto teamDetails);
+	FootballTeamDto getTeam(String teamName);
+	List<FootballTeamDto> getAllTeams();
+}

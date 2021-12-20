@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="footballManager"/>
+<aop-project name="DiscoveryService"/>
+<aop-project name="ApiGateway"/>
+</aop-reference-model>

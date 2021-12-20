@@ -1,0 +1,5 @@
+package com.accessProject.footballManager.shared;
+
+public class ResponseDto {
+
+}

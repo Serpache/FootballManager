@@ -1,0 +1,5 @@
+package com.accessProject.footballManager.config;
+
+public class WebSecurityConfiguration {
+
+}
