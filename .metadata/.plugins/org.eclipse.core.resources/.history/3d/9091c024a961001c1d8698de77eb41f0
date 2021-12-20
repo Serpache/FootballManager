@@ -171,11 +171,6 @@ public class FootballManagerServiceImp implements FootballManagerService {
 			}
 
 		}
-		if(teamDetails.getNombre() == "") {
-			return new ResponseEntity<>(
-					new ResponseDto("El nombre del equipo es obligatorio"),
-					HttpStatus.BAD_REQUEST);
-		}
 		try {
 			FootballTeamEntity entity = footballManagerRepository.findByNombre(teamDetails.getNombre());
 			
