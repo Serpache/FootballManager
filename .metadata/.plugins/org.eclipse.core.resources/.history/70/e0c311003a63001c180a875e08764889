@@ -167,20 +167,6 @@ class FootballManagerServiceImpUnitTest {
 			assertEquals("El nombre del equipo es obligatorio",
 					((ResponseDto) response.getBody()).getDescription());
 		}
-		
-		@Test
-		void shouldReturnBadRequest_WhenNameIsAlreadyExist() {
-			ModelMapper modelMapper = new ModelMapper();
-			modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-			FootballTeamEntity footballTeamEntity = modelMapper.map(newTeam, FootballTeamEntity.class);
-			newTeam.setNombre("Real Madrid");
-			when(footballManagerRepository.findByNombre("Real Madrid")).thenReturn(footballTeamEntity);
-			ResponseEntity<?> response = (ResponseEntity<FootballTeamDto>) footballManagerService.createTeam(newTeam);
-
-			assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-			assertEquals("Error: ya existe un equipo con ese nombre",
-					((ResponseDto) response.getBody()).getDescription());
-		}
 
 		@Test
 		void shouldReturnBadRequest_WhenDivisionIs1AndCapacityUnder50000() {

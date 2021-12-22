@@ -112,7 +112,7 @@ public class FootballManagerServiceImp implements FootballManagerService {
 			FootballTeamEntity entity = footballManagerRepository.findByNombre(teamDetails.getNombre());
 
 			if (entity != null) {
-				return new ResponseEntity<>(new ResponseDto("Error: ya existe un equipo con ese nombre"),
+				return new ResponseEntity<>(new ResponseDto("Error: ya existe un nombre con ese quipo"),
 						HttpStatus.BAD_REQUEST);
 			}
 			teamDetails.setEquipoId(UUID.randomUUID().toString());
